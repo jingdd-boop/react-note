@@ -33,6 +33,7 @@ class Xiaojiejie extends Component{
           
          
           <XiaojiejieItem
+         
            key={index+item} 
            content={item}
            index={index}
