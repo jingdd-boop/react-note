@@ -12,7 +12,9 @@ import {
   NavSearch,
   Addition,
   Button,
-  SearchWrapper
+  SearchWrapper,
+  SearchInfo,
+  SearchInfoTitle
 } from './style.js';
 
 const Header = (props) => {
@@ -40,6 +42,12 @@ const Header = (props) => {
         </NavSearch>
       </CSSTransition>
     <i className={props.focused ? 'focused iconfont icon-icon-search': 'iconfont icon-icon-search'}></i>
+    <SearchInfo>
+       <SearchInfoTitle>
+         热搜推荐
+         <SearchInfoSwitch>换一换</SearchInfoSwitch>
+       </SearchInfoTitle>
+    </SearchInfo>
     </SearchWrapper>
    
   </Nav>
