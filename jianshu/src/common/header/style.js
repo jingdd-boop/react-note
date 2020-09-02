@@ -106,7 +106,6 @@ export const SearchInfo = styled.div`
   top:70px;
   width:240px;
   padding:0 20px;
-  height:110px;
   box-shadow:0 0 8px rgba(0,0,0,.2);
 `
 export const SearchInfoTitle = styled.div`
@@ -115,6 +114,27 @@ export const SearchInfoTitle = styled.div`
   line-height:20px;
   font-size:14px;
   color:#969696;
+`
+export const SearchInfoSwitch = styled.span`
+  font-size:12px;
+  float:right;
+
+`
+export const SearchInfoList = styled.div`
+  overflow:hidden;
+`
+export const SearchInfoItem = styled.a`
+  display:block;
+  float:left;
+  line-height:20px;
+  padding:0 5px;
+  font-size:12px;
+  border:1px solid #eee;
+  margin-right:10px;
+  margin-bottom:15px;
+  color:#969696;
+  border-redius:2px;
+  
 `
 export const Addition = styled.div`
   position:absolute;

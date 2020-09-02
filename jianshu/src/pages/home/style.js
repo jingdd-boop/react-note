@@ -11,10 +11,7 @@ export const HomeLeft = styled.div`
   margin-left:15px;
   padding-top:30px;
   float:left
-  .banner-img{
-    width:620px;
-    height:230px;
-  }
+ 
   
  
 `

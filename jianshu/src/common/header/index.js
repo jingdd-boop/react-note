@@ -14,8 +14,32 @@ import {
   Button,
   SearchWrapper,
   SearchInfo,
-  SearchInfoTitle
+  SearchInfoTitle,
+  SearchInfoList,
+  SearchInfoSwitch,
+  SearchInfoItem
 } from './style.js';
+
+const getListArea = (show) =>{
+  if(show){
+    return(
+      <SearchInfo>
+      <SearchInfoTitle>
+        热搜推荐
+        <SearchInfoSwitch>换一换</SearchInfoSwitch>
+      </SearchInfoTitle>
+      <SearchInfoList>
+        <SearchInfoItem>教育</SearchInfoItem>
+        <SearchInfoItem>简书</SearchInfoItem>
+        <SearchInfoItem>科普</SearchInfoItem>
+        <SearchInfoItem>教育</SearchInfoItem>
+        <SearchInfoItem>简书</SearchInfoItem>
+        <SearchInfoItem>科普</SearchInfoItem>
+      </SearchInfoList>
+   </SearchInfo>
+    )
+  }
+}
 
 const Header = (props) => {
   return ( 
@@ -42,12 +66,7 @@ const Header = (props) => {
         </NavSearch>
       </CSSTransition>
     <i className={props.focused ? 'focused iconfont icon-icon-search': 'iconfont icon-icon-search'}></i>
-    <SearchInfo>
-       <SearchInfoTitle>
-         热搜推荐
-         <SearchInfoSwitch>换一换</SearchInfoSwitch>
-       </SearchInfoTitle>
-    </SearchInfo>
+     {getListArea(props.focused)}
     </SearchWrapper>
    
   </Nav>
