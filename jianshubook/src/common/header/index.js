@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {  connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
 import {
   HeaderWrapper,
   Logo,
@@ -10,12 +12,6 @@ import {
   SearchWrapper
 } from './style';
 class Header extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      focused:true
-    }
-  }
   render() { 
     return ( 
       <HeaderWrapper>
@@ -26,9 +22,17 @@ class Header extends Component {
           <NavItem className="right">登录</NavItem>
           <NavItem className="right"><i className="iconfont icon-yuyan"></i></NavItem>
           <SearchWrapper>
+          <CSSTransition
+          in={this.props.focused}
+          timeout={200}
+          classNames="slide">
             <NavSearch
-             className={this.state.focused ? 'focused' : ''}
+             className={this.props.focused ? 'focused' : ''}
+             onFocus={this.props.handleInputFocus}
+             onBlur={this.props.handleInputBlur}
             ></NavSearch>
+          </CSSTransition>
+           
             <i className={this.props.focused ? 'focused iconfont icon-icon-search': 'iconfont icon-icon-search'}></i>
           </SearchWrapper>
          
@@ -41,4 +45,27 @@ class Header extends Component {
      );
   }
 } 
-export default Header;
+
+
+const mapStateToProps = (state) => {
+  return {
+    focused: state.focused
+  }
+}
+const mapDispathToProps = (dispath) => {
+  return {
+    handleInputFocus(){
+      const action={
+        type:'search_focus'
+      };
+      dispath(action);
+    },
+    handleInputBlur(){
+      const action={
+        type:'search_blur'
+      };
+      dispath(action);
+    }
+  }
+}
+export default connect(mapStateToProps,mapDispathToProps)(Header);

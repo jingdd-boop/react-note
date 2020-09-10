@@ -133,6 +133,7 @@ export const Globalstyle=createGlobalStyle`
 	使用reset.css，
 ### 3、使用styled-components完成Header组件布局
 	在src目录下创建common文件夹，在该文件夹下创建header目录，因为头部的导航在页面的公共部分，同时，在header组件下创建index.js文件，编写Header组件代码
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092340784.png#pic_center)
 
 
@@ -150,26 +151,33 @@ export default Header;
 
 	因为使用了export default Header;，将组件导出。因此我们可以在其他地方引入该组件。
 	如何在页面组件，首先我们要知道，在index.js文件里面引用了App.js组件，
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092349159.png#pic_center)
 
 	当我们需要在页面写header组件时，我们只需把header组件在App.js组件中引用即可：
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092356129.png#pic_center)
 
 	重启页面：可以看到在header组件下写入的Header出现在页面上，说明引用成功了。
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092409213.png#pic_center)
 
 	然后我们就可以开始写header组件了
 1、首先，在header文件夹下创建style.js文件来写header组件的样式
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092417210.png#pic_center)
 
 在index.js中使用
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092422114.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1Njc4NjA3,size_16,color_FFFFFF,t_70#pic_center)
 
 #### 一、首先我们需要实现的是header组件左边的图标
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092429793.png#pic_center)
 
 1、先在src目录下创建statics文件夹，将下载好的图标图片放进去，命名‘js.png’.
 2、在index.js中定义并引用Logo组件
+
   ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092454351.png#pic_center)
 
 3、在style.js里书写样式，首先将图片导入
@@ -200,44 +208,56 @@ export const Nav = styled.div`
   background:red; 
 `;
 希望的效果是，logo和nav组件在同一行，但是效果是这样：
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092505223.png#pic_center)
 
 没错它换行了：
 是因为一个块级元素，块级元素在没有浮动的情况下，是会独占一行的，给logo加float:left;属性让logo左浮动。
 再来看效果：
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092511772.png#pic_center)
 
 成功啦。好吧，是个小问题。。
 
 奥利给。。O(∩_∩)O
 ### 三、完成Nav组件
+
 我们在Nav组件下写上四个NavItem项目
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092518187.png#pic_center)
 
 前两个是要左浮动，后两个有浮动，提前给标签加上className=“left/right”.当然可以在每个项目上加单独的样式，如首页的字体。
 再回到样式里面，几个项目有相同的样式，写在上面。
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092524127.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1Njc4NjA3,size_16,color_FFFFFF,t_70#pic_center)
 
 效果：
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092529476.png#pic_center)
 
 ### 四、搜索框
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092540639.png#pic_center)
 样式：
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092544504.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1Njc4NjA3,size_16,color_FFFFFF,t_70#pic_center)
 
 效果:
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092550505.png#pic_center)
 :smile_cat:9/8
 ### 五、注册和写文章的两个button
 布局：
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092650658.png#pic_center)
 
 
 样式：
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092654856.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1Njc4NjA3,size_16,color_FFFFFF,t_70#pic_center)
 
 还需要注意一个就是，在设置完最右边的组册和写文章的时候，会把旁边的登录给覆盖到：
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092700443.png#pic_center)
 
 给Nav加上右内边距，同时加上
@@ -247,23 +267,30 @@ export const Nav = styled.div`
 ```
 
 效果：
+
  
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092707359.png#pic_center)
 
 ### 六、使用iconfont嵌入头部图标
  
 先在官网下载，再到项目里面引用：
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092716738.png#pic_center)
 
  
 再回到组件中引用：
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092720794.png#pic_center)
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092725314.png#pic_center)
 
 这里我们需要注意的是，早搜索框和搜索图标的外层再写一个组件，有利于后面写样式布局：
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092730922.png#pic_center)
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092735325.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1Njc4NjA3,size_16,color_FFFFFF,t_70#pic_center)
 效果：
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200910092741191.png#pic_center)
 
 
