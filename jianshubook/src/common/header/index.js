@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {  connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
+import { actionCreators }  from './store';
 import {
   HeaderWrapper,
   Logo,
@@ -11,10 +12,9 @@ import {
   Button,
   SearchWrapper
 } from './style';
-class Header extends Component {
-  render() { 
-    return ( 
-      <HeaderWrapper>
+const Header = (props) => {
+  return (
+    <HeaderWrapper>
         <Logo />
         <Nav>
           <NavItem className="left active">首页</NavItem>
@@ -23,17 +23,17 @@ class Header extends Component {
           <NavItem className="right"><i className="iconfont icon-yuyan"></i></NavItem>
           <SearchWrapper>
           <CSSTransition
-          in={this.props.focused}
+          in={props.focused}
           timeout={200}
           classNames="slide">
             <NavSearch
-             className={this.props.focused ? 'focused' : ''}
-             onFocus={this.props.handleInputFocus}
-             onBlur={this.props.handleInputBlur}
+             className={props.focused ? 'focused' : ''}
+             onFocus={props.handleInputFocus}
+             onBlur={props.handleInputBlur}
             ></NavSearch>
           </CSSTransition>
            
-            <i className={this.props.focused ? 'focused iconfont icon-icon-search': 'iconfont icon-icon-search'}></i>
+            <i className={props.focused ? 'focused iconfont icon-icon-search': 'iconfont icon-icon-search'}></i>
           </SearchWrapper>
          
         </Nav>
@@ -42,29 +42,25 @@ class Header extends Component {
           <Button className="reg">注册</Button>
         </Addition>
       </HeaderWrapper>
-     );
-  }
-} 
+  )
+  
+}
+
+
 
 
 const mapStateToProps = (state) => {
   return {
-    focused: state.focused
+    focused: state.header.focused
   }
 }
 const mapDispathToProps = (dispath) => {
   return {
-    handleInputFocus(){
-      const action={
-        type:'search_focus'
-      };
-      dispath(action);
+    handleInputFocus(){  
+      dispath(actionCreators.searchFocus);
     },
     handleInputBlur(){
-      const action={
-        type:'search_blur'
-      };
-      dispath(action);
+      dispath(actionCreators.searchBlur);
     }
   }
 }
