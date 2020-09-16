@@ -112,7 +112,7 @@ const mapStateToProps = (state) => {
     //focused: state.getIn(['header','focused'])
   }
 }
-const mapDispathToProps = (dispath) => {
+const mapDispatchToProps = (dispath) => {
   return {
     handleInputFocus(list){  
       (list.size === 0) && dispath(actionCreators.getList());
@@ -145,4 +145,4 @@ const mapDispathToProps = (dispath) => {
     }
   
 }
-export default connect(mapStateToProps,mapDispathToProps)(Header);
+export default connect(mapStateToProps,mapDispatchToProps)(Header);
