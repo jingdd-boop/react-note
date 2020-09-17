@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Topic from './components/Topics'
 import List from './components/List'
 import Recommend from './components/Recommend'
 import Writer from './components/Writer'
-import axios from 'axios'
+import {actionCreators, constants } from './store'
 import {connect} from 'react-redux';
 
 
@@ -11,9 +11,14 @@ import {
   HomeWrapper,
   HomeLeft,
   HomeRight,
+  BackTop
  } from './style';
+import { isImmutable } from 'immutable';
 
-class Home extends Component {
+class Home extends PureComponent {
+  handleScrollTop() {
+    window.scrollTo(0,0);
+  }
   render() { 
     return ( 
       <HomeWrapper>
@@ -26,28 +31,45 @@ class Home extends Component {
           <Recommend></Recommend>
           <Writer></Writer>
         </HomeRight>
+        {
+          this.props.showScroll ? <BackTop onClick={this.handleScrollTop}>回到顶部</BackTop> : null
+        }
+        
       </HomeWrapper>
+     
      );
   }
   componentDidMount() {
-    axios.get('/api/home.json').then((res)=>{
-      const result = res.data.data;
-      const action = {
-        type: "change_home_data",
-        topicList:result.topicList,
-        articleList: result. articleList,
-        recommendList:result.recommendList,
-        writeList:result.writeList
-      }
-      console.log(result);
-      this.props.changeHomeData(action)
-    })
+    this.props.changeHomeData();
+    this.bindEvents();
+  }
+  componentWillUnmount(){
+    window.removeEventListener('scroll',this.props.changeScrollTopShow)
+  }
+  bindEvents() {
+    window.addEventListener('scroll',this.props.changeScrollTopShow)
   }
 }
- 
+const mapStateProps = (state) => ({
+  showScroll:state.getIn(['home','showScroll'])
+})
 const mapDispatchToProps = (dispatch) => ({
-  changeHomeData(action){
+  changeHomeData(){
+    const action = actionCreators.getHomeInfo();
     dispatch(action);
+  },
+  changeScrollTopShow(){
+    if(document.documentElement.scrollTop > 100){
+      dispatch(actionCreators.taggleTopShow(true))
+    }else{
+      dispatch(actionCreators.taggleTopShow(false))
+    }
+    
   }
 })
-export default connect(null,mapDispatchToProps)(Home);
+export default connect(mapStateProps,mapDispatchToProps)(Home);
+
+
+
+
+ //immutable.js数据，

@@ -7,9 +7,7 @@ export const HeaderWrapper = styled.div`
   border-bottom:1px solid #f0f0f0;
 `;
 
-export const Logo = styled.a.attrs({
-  href:'/'
-})`
+export const Logo = styled.div`
 postion:absolute;
 top:0;
 left:0;
@@ -25,7 +23,7 @@ export const Nav = styled.div`
   width:960px;
   height:80px;
   margin:0 auto;   
-  padding-right:70px;
+  padding-right:130px;
   box-sizing:border-box;
 `;
 

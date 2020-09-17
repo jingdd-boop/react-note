@@ -1,9 +1,9 @@
 import React from 'react';
 import Header from './common/header'
 import store from './store';
-import { BrowserRouter,Route} from 'react-router-dom';
-import Home from './pages/home'
-import Detail from './pages/detail'
+//import { BrowserRouter,Route} from 'react-router-dom';
+//import Home from './pages/home'
+//import Detail from './pages/detail'
 import { Provider } from 'react-redux'
 
 function App() {
@@ -11,12 +11,12 @@ function App() {
     <Provider store={store}>
       <div>
       <Header />
-      <BrowserRouter>
+      {/* <BrowserRouter>
        <div>
         <Route path='/' exact component={Home}></Route>
         <Route path='/detail' exact component={Detail}></Route>
        </div>  
-      </BrowserRouter>
+      </BrowserRouter> */}
       </div>
     </Provider>
     
