@@ -1,12 +1,13 @@
 import React,{Component} from 'react'
+import { Button,Steps,Step } from 'antd';
+import './App.css';
 
 class App extends Component{
   render(){
     return (
-      <ul className="my-list">
-        <li>js</li>
-        <li>jing</li>
-      </ul>
+      <div className="App">
+    
+      </div>
     )
     // var child1 = React.createElement('li',null,'js')
     // var child2 = React.createElement('li',null,'jing')
