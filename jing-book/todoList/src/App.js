@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div>
         hello world
-        <BasicExample />,
+        <BasicExample />
         <TodoList />
         
       </div>

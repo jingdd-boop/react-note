@@ -1,0 +1,25 @@
+.search {
+ 
+}
+
+.search-input {
+  border-radius: 10px;
+}
+
+.search-btn {
+  background-color: rgb(10, 10, 10);
+  color: aliceblue;
+  border-radius: 10px;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+ 
+}
+.item-number {
+
+}
+.item-del {
+  border-radius: 10px;
+}
