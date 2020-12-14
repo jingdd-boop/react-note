@@ -4,14 +4,17 @@ import React, { Component } from 'react'
 
 import BasicExample from './BasicExample'
 import TodoList from './TodoList'
+import Header from './Header'
+
 
 class App extends Component {
   render() {
     return (
       <div>
-        hello world
+        <Header />
         <BasicExample />
         <TodoList />
+      
         
       </div>
     );
