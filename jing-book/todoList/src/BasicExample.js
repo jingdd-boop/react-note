@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Hook from './Hook'
+import Home from './Home'
 import './BasicExample.css'
 
 const BasicExample = () => (
@@ -18,7 +19,6 @@ const BasicExample = () => (
         </li>
       </ul>
       <hr />
-
       <Route exact path="/" component={Home} />
       <Route path="/hook" component={Hook} />
       <Route path="/topics" component={Topics} />
@@ -26,11 +26,11 @@ const BasicExample = () => (
   </Router>
  
 );
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-);
+// const Home = () => (
+//   <div>
+//     <h2>Home</h2>
+//   </div>
+// );
 // const About = () => (
 //   <div>
 //     <h2>about</h2>
